@@ -1,0 +1,12 @@
+<svg width="720" height="880" viewBox="0 0 720 880" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="720" height="880" rx="40" fill="#F4F1E8"/>
+  <rect x="36" y="36" width="648" height="808" rx="28" fill="#FAF8F2" stroke="#D6D0C1" stroke-width="2" stroke-dasharray="12 14"/>
+  <circle cx="360" cy="286" r="112" fill="#D8E1E7"/>
+  <path d="M360 206C314.7 206 278 242.7 278 288C278 333.3 314.7 370 360 370C405.3 370 442 333.3 442 288C442 242.7 405.3 206 360 206Z" fill="#8AA2B1"/>
+  <path d="M220 632C220 543.634 291.634 472 380 472H340C428.366 472 500 543.634 500 632V660H220V632Z" fill="#8AA2B1"/>
+  <rect x="116" y="712" width="488" height="16" rx="8" fill="#CEC8B8"/>
+  <rect x="176" y="752" width="368" height="16" rx="8" fill="#D9D3C5"/>
+  <rect x="254" y="80" width="212" height="40" rx="20" fill="#DBE7EE"/>
+  <text x="360" y="107" text-anchor="middle" fill="#5A7382" font-family="Arial, sans-serif" font-size="20" font-weight="700">PROFILE IMAGE</text>
+  <text x="360" y="802" text-anchor="middle" fill="#7B7A73" font-family="Arial, sans-serif" font-size="22" font-weight="600">Replace this file with your portrait</text>
+</svg>

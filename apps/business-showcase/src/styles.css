@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+@config "../../../tailwind.config.js";
+@source "./app/**/*.{html,ts}";
+@source "../../../libs/**/*.{html,ts}";
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700&display=swap');
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer theme, base, components, utilities;
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/preflight.css' layer(base);
+@import '@spartan-ng/brain/hlm-tailwind-preset.css';
+@import '../../../libs/shared-ui/src/lib/styles/theme.css';
+@import 'tailwindcss/utilities.css';

@@ -1,0 +1,6 @@
+{
+  "componentsPath": "libs/shared-ui",
+  "buildable": false,
+  "generateAs": "entrypoint",
+  "importAlias": "@business-ecosystem/shared-ui"
+}

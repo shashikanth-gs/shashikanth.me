@@ -14,7 +14,27 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@business-ecosystem/shared-ui": ["libs/shared-ui/src/index.ts"],
+      "@business-ecosystem/shared-ui/avatar": [
+        "./libs/shared-ui/avatar/src/index.ts"
+      ],
+      "@business-ecosystem/shared-ui/button": [
+        "./libs/shared-ui/button/src/index.ts"
+      ],
+      "@business-ecosystem/shared-ui/card": [
+        "./libs/shared-ui/card/src/index.ts"
+      ],
+      "@business-ecosystem/shared-ui/input": [
+        "./libs/shared-ui/input/src/index.ts"
+      ],
+      "@business-ecosystem/shared-ui/typography": [
+        "./libs/shared-ui/typography/src/index.ts"
+      ],
+      "@business-ecosystem/shared-ui/utils": [
+        "./libs/shared-ui/utils/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

@@ -1,0 +1,134 @@
+<div class="space-y-8 md:space-y-10">
+  <section
+    class="grid items-start gap-5 xl:grid-cols-[minmax(0,1fr)_minmax(300px,340px)]"
+  >
+    <div
+      class="space-y-4 rounded-[calc(var(--radius)+0.75rem)] border border-border/70 bg-surface/72 p-5 shadow-panel backdrop-blur md:space-y-5 md:p-7"
+    >
+      <p class="text-sm font-semibold uppercase tracking-[0.24em] text-primary">
+        Writing Archive
+      </p>
+      <h1
+        hlmH1
+        class="max-w-none font-display text-2xl leading-[1.1] tracking-[-0.02em] sm:text-[2.05rem] md:text-[2.2rem] lg:text-[2.3rem]"
+      >
+        Architecture notes from real systems, real constraints, and real
+        implementation work.
+      </h1>
+      <p hlmLead class="max-w-none text-base leading-7 md:text-lg">
+        This page curates your public writing from Medium and DEV into a single
+        portfolio-friendly reading surface, while keeping direct links to the
+        original posts.
+      </p>
+    </div>
+
+    <section
+      hlmCard
+      class="border-border/70 bg-background/88 shadow-panel xl:sticky xl:top-28"
+    >
+      <div hlmCardHeader class="gap-2 border-b border-border/60">
+        <h2 hlmCardTitle class="font-display text-2xl">Search articles</h2>
+        <p hlmCardDescription>Filter by title, platform, topic, or tag.</p>
+      </div>
+
+      <div hlmCardContent class="space-y-4">
+        <input
+          hlmInput
+          [value]="query()"
+          placeholder="Search MCP, Copilot, Medium"
+          (input)="updateQuery($event)"
+        />
+
+        <div
+          class="rounded-2xl border border-border/60 bg-surface p-4 text-sm text-muted-foreground"
+        >
+          Showing {{ posts().length }} article{{
+            posts().length === 1 ? '' : 's'
+          }}.
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <section class="grid gap-6">
+    @for (post of posts(); track post.slug) {
+      <section
+        hlmCard
+        class="group relative flex flex-col overflow-hidden border-border/70 bg-background/88 shadow-panel transition-colors hover:border-primary/40"
+      >
+        <a
+          class="absolute inset-0 z-10 rounded-[inherit] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+          [routerLink]="['/blog', post.slug]"
+          [attr.aria-label]="'Open summary: ' + post.title"
+        >
+          <span class="sr-only">Open summary</span>
+        </a>
+
+        <div hlmCardHeader class="gap-3 border-b border-border/60 md:gap-4">
+          <div
+            class="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-sm text-muted-foreground"
+          >
+            <span
+              class="rounded-full bg-primary/10 px-3 py-1 font-semibold text-primary"
+            >
+              {{ post.platform }}
+            </span>
+            <span>{{ post.category }}</span>
+            <span>{{ post.publishedOn }}</span>
+            <span>{{ post.readTime }}</span>
+          </div>
+          <h2
+            hlmCardTitle
+            class="font-display text-xl transition-colors group-hover:text-primary md:text-2xl"
+          >
+            {{ post.title }}
+          </h2>
+          <p hlmCardDescription class="max-w-4xl text-base leading-7">
+            {{ post.summary }}
+          </p>
+        </div>
+
+        <div hlmCardContent class="flex-1 space-y-4">
+          <div class="flex flex-wrap gap-2">
+            @for (tag of post.tags; track tag) {
+              <span
+                class="rounded-full border border-border/70 bg-surface px-3 py-1 text-sm text-muted-foreground"
+              >
+                {{ tag }}
+              </span>
+            }
+          </div>
+        </div>
+
+        <div hlmCardFooter class="relative z-20 border-t border-border/60">
+          <div class="flex w-full flex-wrap gap-2.5">
+            <a
+              hlmBtn
+              class="h-9 px-4"
+              variant="outline"
+              size="default"
+              [href]="post.sourceUrl"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Read original article
+            </a>
+            @if (post.relatedRepoUrl) {
+              <a
+                hlmBtn
+                class="h-9 px-4"
+                size="default"
+                variant="outline"
+                [href]="post.relatedRepoUrl"
+                target="_blank"
+                rel="noreferrer"
+              >
+                View related repo
+              </a>
+            }
+          </div>
+        </div>
+      </section>
+    }
+  </section>
+</div>

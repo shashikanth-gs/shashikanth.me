@@ -1,0 +1,580 @@
+<div class="space-y-10 md:space-y-14">
+  <section
+    id="about"
+    class="grid items-start gap-6 lg:items-stretch lg:grid-cols-[minmax(0,1.15fr)_minmax(320px,0.85fr)]"
+  >
+    <div
+      class="space-y-6 rounded-[calc(var(--radius)+1rem)] border border-border/70 bg-surface/78 p-6 shadow-hero backdrop-blur md:space-y-8 md:p-10 lg:h-full"
+    >
+      <div
+        class="inline-flex items-center rounded-full border border-primary/20 bg-primary/8 px-4 py-1 text-sm font-semibold text-primary"
+      >
+        Airline Domain • Architecture • Distributed Systems • Agentic AI
+      </div>
+
+      <div class="space-y-5">
+        <p
+          class="text-sm font-semibold uppercase tracking-[0.24em] text-muted-foreground"
+        >
+          {{ profile.location }}
+        </p>
+        <h1
+          hlmH1
+          class="max-w-4xl font-display text-balance text-3xl leading-[0.98] tracking-[-0.03em] md:text-5xl"
+        >
+          {{ profile.name }}
+        </h1>
+        <p
+          hlmLead
+          class="max-w-3xl text-balance text-lg text-muted-foreground md:text-xl"
+        >
+          {{ profile.headline }}
+        </p>
+        <p class="max-w-3xl text-base leading-7 text-foreground/88 md:text-lg">
+          {{ profile.intro }}
+        </p>
+      </div>
+
+      <div class="rounded-2xl border border-border/60 bg-background/82 p-4">
+        <p
+          class="text-xs font-semibold uppercase tracking-[0.2em] text-primary"
+        >
+          At A Glance
+        </p>
+        <div class="mt-3 flex flex-wrap gap-2.5">
+          @for (metric of profile.metrics; track metric.label) {
+            <div
+              class="inline-flex items-center gap-2 rounded-full border border-border/70 bg-surface px-3 py-1.5"
+            >
+              <span class="text-sm font-semibold text-foreground">
+                {{ metric.value }}
+              </span>
+              <span class="text-xs text-muted-foreground">
+                {{ metric.label }}
+              </span>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+
+    <section
+      hlmCard
+      class="flex h-full flex-col border-primary/12 bg-background/90 shadow-panel"
+    >
+      <div hlmCardContent class="flex flex-1 flex-col gap-5 pt-6">
+        <div
+          class="overflow-hidden rounded-[calc(var(--radius)+0.25rem)] border border-border/70 bg-surface lg:flex-1"
+        >
+          <img
+            [src]="profile.imageSrc"
+            [alt]="profile.name + ' profile image'"
+            class="block aspect-[5/4] w-full object-cover object-center lg:h-full lg:aspect-auto"
+          />
+        </div>
+
+        <div class="space-y-3 pb-1">
+          <div class="flex items-center gap-3">
+            <hlm-avatar size="lg">
+              <span hlmAvatarFallback>{{ profile.initials }}</span>
+            </hlm-avatar>
+            <div>
+              <p class="font-semibold text-foreground">{{ profile.name }}</p>
+              <p class="text-sm text-muted-foreground">
+                Solution Architect · Amadeus
+              </p>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-2">
+            <a
+              hlmBtn
+              class="h-8 px-3"
+              variant="ghost"
+              size="sm"
+              [href]="profile.linkedin"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img
+                [src]="linkedinLogo"
+                alt=""
+                class="mr-1.5 h-4 w-4 opacity-75 dark:invert dark:opacity-100"
+                aria-hidden="true"
+              />
+              LinkedIn
+            </a>
+            <a
+              hlmBtn
+              class="h-8 px-3"
+              variant="ghost"
+              size="sm"
+              [href]="profile.github"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img
+                [src]="githubLogo"
+                alt=""
+                class="mr-1.5 h-4 w-4 opacity-75 dark:invert dark:opacity-100"
+                aria-hidden="true"
+              />
+              GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <section class="grid gap-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
+    <section hlmCard class="border-border/70 bg-background/88 shadow-panel">
+      <div hlmCardHeader class="border-b border-border/60">
+        <p
+          class="text-sm font-semibold uppercase tracking-[0.24em] text-primary"
+        >
+          About
+        </p>
+        <h2 hlmCardTitle class="font-display text-2xl md:text-3xl">
+          How I work
+        </h2>
+        <p hlmCardDescription>
+          Architecture with domain depth, operating empathy, and a strong bias
+          toward systems that survive real-world complexity.
+        </p>
+      </div>
+
+      <div hlmCardContent class="space-y-2">
+        @for (paragraph of profile.about; track paragraph) {
+          <p hlmP class="text-base leading-7 text-foreground/88">
+            {{ paragraph }}
+          </p>
+        }
+      </div>
+    </section>
+
+    <section hlmCard class="border-border/70 bg-background/88 shadow-panel">
+      <div hlmCardHeader class="border-b border-border/60">
+        <p
+          class="text-sm font-semibold uppercase tracking-[0.24em] text-primary"
+        >
+          Core strengths
+        </p>
+        <h2 hlmCardTitle class="font-display text-2xl md:text-3xl">
+          Domain, platform, and AI engineering
+        </h2>
+      </div>
+
+      <div hlmCardContent>
+        <ul hlmUl class="my-0 ml-5 text-sm leading-7 text-muted-foreground">
+          <li>
+            Modern airline retailing across NDC, ONE Order, offers, orders,
+            servicing, ancillaries, and distribution APIs.
+          </li>
+          <li>
+            Offer management, order management, booking and servicing flows,
+            with standards-aware integration into broader airline ecosystems.
+          </li>
+          <li>
+            PSS and EDIFACT-era modernization through API-first, cloud-native,
+            microservices, and event-driven architecture patterns.
+          </li>
+          <li>
+            Agentic AI systems, AIOps platforms, protocol wrappers, and
+            AI-native developer tooling for real operational use cases.
+          </li>
+          <li>
+            Stakeholder-facing architecture spanning solution definition,
+            technical roadmaps, customer alignment, and complex airline
+            modernization programs.
+          </li>
+        </ul>
+      </div>
+    </section>
+  </section>
+
+  <section id="clients" class="space-y-6">
+    <div class="space-y-3">
+      <p class="text-sm font-semibold uppercase tracking-[0.24em] text-primary">
+        Selected Clients
+      </p>
+      <h2 hlmH2 class="font-display text-2xl md:text-3xl">
+        Airlines and institutions I have worked with
+      </h2>
+      <p class="max-w-3xl text-sm leading-6 text-muted-foreground">
+        This portfolio is intentionally domain-led. The names below reflect the
+        kinds of airline and institutional environments I have supported through
+        platform work, modernization, and delivery.
+      </p>
+    </div>
+
+    <section hlmCard class="border-border/70 bg-background/88 shadow-panel">
+      <div hlmCardContent class="grid gap-4 pt-6 sm:grid-cols-2 lg:grid-cols-3">
+        @for (client of selectedClients; track client.name) {
+          <article class="rounded-2xl border border-border/70 bg-surface p-4">
+            <div class="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3">
+              <p class="text-base font-semibold leading-6 text-foreground">
+                {{ client.name }}
+              </p>
+
+              <div
+                [className]="
+                  'inline-flex h-11 min-w-[6.25rem] shrink-0 items-center justify-center rounded-xl border px-3 shadow-xs ' +
+                  getLogoBadgeClass(client.logoBadge)
+                "
+              >
+                @if (client.logoSrc) {
+                  <img
+                    [src]="client.logoSrc"
+                    [alt]="client.name + ' logo'"
+                    class="h-6 w-auto max-w-[6.75rem] object-contain"
+                  />
+                } @else {
+                  <span
+                    [className]="
+                      'text-xs font-semibold uppercase tracking-wide ' +
+                      getLogoBadgeTextClass(client.logoBadge)
+                    "
+                  >
+                    {{ getClientMonogram(client.name) }}
+                  </span>
+                }
+              </div>
+            </div>
+          </article>
+        }
+      </div>
+    </section>
+  </section>
+
+  <section id="experience" class="space-y-6">
+    <div
+      class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between"
+    >
+      <div>
+        <p
+          class="text-sm font-semibold uppercase tracking-[0.24em] text-primary"
+        >
+          Professional Footprint
+        </p>
+        <h2 hlmH2 class="mt-2 font-display text-2xl md:text-3xl">
+          How I have operated across the airline stack
+        </h2>
+      </div>
+      <a
+        hlmBtn
+        class="flex w-full items-center justify-center gap-2 sm:w-auto"
+        variant="outline"
+        [href]="profile.linkedin"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <img
+          [src]="linkedinLogo"
+          alt=""
+          class="h-4 w-4 opacity-75 dark:invert dark:opacity-100"
+          aria-hidden="true"
+        />
+        Full LinkedIn profile
+      </a>
+    </div>
+
+    <div class="grid gap-6 lg:grid-cols-3">
+      @for (entry of experience; track entry.company) {
+        <section
+          hlmCard
+          class="flex h-full flex-col overflow-hidden border-border/70 bg-background/88 shadow-panel"
+        >
+          <div hlmCardHeader class="border-b border-border/60">
+            <div class="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-3">
+              <div class="min-w-0 space-y-1">
+                <h3 hlmCardTitle class="font-display text-xl md:text-2xl">
+                  {{ entry.company }}
+                </h3>
+                <p class="text-sm font-medium text-foreground md:text-base">
+                  {{ entry.title }}
+                </p>
+              </div>
+
+              @if (entry.logoSrc) {
+                <div
+                  [className]="
+                    'inline-flex h-10 min-w-[6.25rem] shrink-0 items-center justify-center rounded-xl border px-3 shadow-xs ' +
+                    getLogoBadgeClass(entry.logoBadge)
+                  "
+                >
+                  <img
+                    [src]="entry.logoSrc"
+                    [alt]="entry.company + ' logo'"
+                    class="h-6 w-auto max-w-[6.75rem] object-contain"
+                  />
+                </div>
+              }
+            </div>
+            <p hlmCardDescription class="mt-3">{{ entry.summary }}</p>
+          </div>
+
+          <div hlmCardContent class="flex-1">
+            <ul hlmUl class="my-0 ml-5 text-sm leading-7 text-muted-foreground">
+              @for (item of entry.achievements; track item) {
+                <li>{{ item }}</li>
+              }
+            </ul>
+          </div>
+        </section>
+      }
+    </div>
+  </section>
+
+  <section id="projects" class="space-y-6">
+    <div>
+      <p class="text-sm font-semibold uppercase tracking-[0.24em] text-primary">
+        Focus Areas
+      </p>
+      <h2 hlmH2 class="mt-2 font-display text-2xl md:text-3xl">
+        Systems and initiatives I care about most
+      </h2>
+    </div>
+
+    <div class="grid gap-6 lg:grid-cols-2">
+      @for (area of focusAreas; track area.title) {
+        <section
+          hlmCard
+          class="flex h-full flex-col border-border/70 bg-background/88 shadow-panel"
+        >
+          <div hlmCardHeader class="border-b border-border/60">
+            <div class="flex items-center justify-between gap-3">
+              <p
+                class="text-sm font-semibold uppercase tracking-[0.2em] text-primary"
+              >
+                {{ area.category }}
+              </p>
+              @if (area.ipLabel) {
+                <span
+                  class="rounded-full border border-amber-400/35 bg-amber-400/10 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.08em] text-amber-300"
+                >
+                  {{ area.ipLabel }}
+                </span>
+              }
+            </div>
+            <h3 hlmCardTitle class="font-display text-xl md:text-2xl">
+              {{ area.title }}
+            </h3>
+            <p hlmCardDescription>{{ area.summary }}</p>
+          </div>
+
+          <div hlmCardContent class="flex flex-1 flex-wrap gap-2">
+            @for (tech of area.technologies; track tech) {
+              <span
+                [className]="getFocusPillClass(area.category)"
+                [attr.title]="tech"
+              >
+                {{ tech }}
+              </span>
+            }
+          </div>
+        </section>
+      }
+    </div>
+  </section>
+
+  <section id="open-source" class="space-y-6">
+    <div
+      class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between"
+    >
+      <div>
+        <p
+          class="text-sm font-semibold uppercase tracking-[0.24em] text-primary"
+        >
+          Open Source
+        </p>
+        <h2 hlmH2 class="mt-2 font-display text-2xl md:text-3xl">
+          Public work on GitHub
+        </h2>
+      </div>
+      <a
+        hlmBtn
+        class="flex w-full items-center justify-center gap-2 sm:w-auto"
+        [href]="profile.github"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <img
+          [src]="githubLogo"
+          alt=""
+          class="h-4 w-4 opacity-75 dark:invert dark:opacity-100"
+          aria-hidden="true"
+        />
+        Visit GitHub profile
+      </a>
+    </div>
+
+    <div class="grid gap-6 lg:grid-cols-3">
+      @for (project of openSourceProjects; track project.name) {
+        <section
+          hlmCard
+          class="flex h-full flex-col border-border/70 bg-background/88 shadow-panel"
+        >
+          <div hlmCardHeader class="border-b border-border/60">
+            <p
+              class="text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground"
+            >
+              {{ project.source }}
+            </p>
+            <h3 hlmCardTitle class="font-display text-xl md:text-2xl">
+              {{ project.name }}
+            </h3>
+            <p hlmCardDescription>{{ project.summary }}</p>
+          </div>
+
+          <div hlmCardContent class="flex-1">
+            <ul hlmUl class="my-0 ml-5 text-sm leading-7 text-muted-foreground">
+              @for (item of project.highlights; track item) {
+                <li>{{ item }}</li>
+              }
+            </ul>
+          </div>
+
+          <div hlmCardFooter class="border-t border-border/60">
+            <a
+              hlmBtn
+              class="w-full sm:w-auto"
+              variant="outline"
+              [href]="project.url"
+              target="_blank"
+              rel="noreferrer"
+            >
+              View repository
+            </a>
+          </div>
+        </section>
+      }
+    </div>
+  </section>
+
+  <section id="writing" class="space-y-6">
+    <div
+      class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between"
+    >
+      <div>
+        <p
+          class="text-sm font-semibold uppercase tracking-[0.24em] text-primary"
+        >
+          Writing
+        </p>
+        <h2 hlmH2 class="mt-2 font-display text-2xl md:text-3xl">
+          Medium and DEV articles, curated into this portfolio
+        </h2>
+      </div>
+      <a hlmBtn class="w-full sm:w-auto" routerLink="/blog"
+        >Open writing archive</a
+      >
+    </div>
+
+    <div class="space-y-4">
+      @for (post of featuredPosts; track post.slug) {
+        <section
+          hlmCard
+          class="group relative overflow-hidden border-border/70 bg-background/88 shadow-panel transition-colors hover:border-primary/40"
+        >
+          <a
+            class="absolute inset-0 z-10 rounded-[inherit] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            [routerLink]="['/blog', post.slug]"
+            [attr.aria-label]="'Open summary: ' + post.title"
+          >
+            <span class="sr-only">Open summary</span>
+          </a>
+
+          <div hlmCardContent class="relative z-20 pt-6">
+            <article
+              class="grid gap-5 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-start"
+            >
+              <div class="min-w-0 space-y-4">
+                <div
+                  class="flex flex-wrap items-center gap-2 text-sm text-muted-foreground"
+                >
+                  <span
+                    [className]="
+                      'rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-[0.08em] ' +
+                      getWritingPlatformClass(post.platform)
+                    "
+                  >
+                    {{ post.platform }}
+                  </span>
+                  <span>{{ post.publishedOn }}</span>
+                </div>
+
+                <div class="space-y-2">
+                  <h3
+                    hlmCardTitle
+                    class="font-display text-xl transition-colors group-hover:text-primary md:text-2xl"
+                  >
+                    {{ post.title }}
+                  </h3>
+                  <p hlmCardDescription class="text-base leading-7">
+                    {{ post.summary }}
+                  </p>
+                </div>
+
+                <div class="flex flex-wrap gap-2">
+                  @for (tag of post.tags; track tag) {
+                    <span
+                      class="rounded-full border border-border/70 bg-surface px-3 py-1 text-sm text-muted-foreground"
+                    >
+                      {{ tag }}
+                    </span>
+                  }
+                </div>
+              </div>
+
+              <div
+                class="flex flex-col gap-2 lg:min-w-[11.5rem] lg:items-end lg:justify-start"
+              >
+                <a
+                  hlmBtn
+                  class="h-9 w-full px-4 lg:w-auto"
+                  size="default"
+                  variant="outline"
+                  [href]="post.sourceUrl"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Read original article
+                </a>
+
+                @if (post.companionUrl) {
+                  <a
+                    hlmBtn
+                    class="h-9 w-full px-4 lg:w-auto"
+                    size="default"
+                    variant="ghost"
+                    [href]="post.companionUrl"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Companion link
+                  </a>
+                }
+              </div>
+            </article>
+          </div>
+          @if (post.relatedRepoUrl) {
+            <div hlmCardFooter class="relative z-20 border-t border-border/60">
+              <a
+                hlmBtn
+                variant="outline"
+                size="default"
+                class="h-9 px-4"
+                [href]="post.relatedRepoUrl"
+                target="_blank"
+                rel="noreferrer"
+              >
+                View related repo
+              </a>
+            </div>
+          }
+        </section>
+      }
+    </div>
+  </section>
+</div>

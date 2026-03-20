@@ -1,2 +1,181 @@
-<app-nx-welcome></app-nx-welcome>
-<router-outlet></router-outlet>
+<div class="relative isolate min-h-screen overflow-hidden">
+  <div
+    class="pointer-events-none absolute inset-x-0 top-0 h-[32rem] bg-linear-to-b from-primary/12 via-transparent to-transparent"
+  ></div>
+  <div
+    class="pointer-events-none absolute inset-0 bg-brand-grid bg-[size:72px_72px] opacity-30 [mask-image:linear-gradient(to_bottom,white,transparent_78%)]"
+  ></div>
+
+  <div
+    class="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col px-4 pb-10 sm:px-6 lg:px-8"
+  >
+    <header class="sticky top-0 z-20 py-4 md:py-5">
+      <div
+        class="flex flex-col gap-3 rounded-2xl border border-border/70 bg-background/88 px-4 py-3 shadow-sm backdrop-blur md:flex-row md:items-center md:justify-between md:px-6"
+      >
+        <div class="min-w-0">
+          <a
+            class="block truncate font-display text-xl text-foreground md:text-2xl"
+            routerLink="/"
+          >
+            {{ profile.name }}
+          </a>
+          <p
+            class="mt-0.5 text-[11px] leading-5 text-muted-foreground md:text-sm"
+          >
+            Airline Domain · Solution Architect · Applied AI · Cloud · App
+            Modernization
+          </p>
+        </div>
+
+        <div
+          class="flex w-full items-center justify-between gap-2 md:w-auto md:justify-end md:gap-3"
+        >
+          <nav
+            class="flex flex-1 items-center gap-1 rounded-xl border border-border/70 bg-surface/80 p-1 md:flex-none"
+            aria-label="Primary"
+          >
+            <a
+              hlmBtn
+              variant="ghost"
+              size="sm"
+              class="nav-link"
+              routerLink="/"
+              routerLinkActive="bg-background text-foreground shadow-sm"
+              [routerLinkActiveOptions]="{ exact: true }"
+            >
+              Portfolio
+            </a>
+            <a
+              hlmBtn
+              variant="ghost"
+              size="sm"
+              class="nav-link"
+              routerLink="/blog"
+              routerLinkActive="bg-background text-foreground shadow-sm"
+              [routerLinkActiveOptions]="{ exact: true }"
+            >
+              Writing
+            </a>
+          </nav>
+
+          <a
+            hlmBtn
+            variant="ghost"
+            size="sm"
+            class="hidden items-center gap-2 md:inline-flex"
+            [href]="profile.github"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img
+              src="/logos/github.svg"
+              alt=""
+              class="h-4 w-4 opacity-75 dark:invert dark:opacity-100"
+              aria-hidden="true"
+            />
+            GitHub
+          </a>
+
+          <button
+            hlmBtn
+            variant="outline"
+            type="button"
+            class="h-9 w-9 shrink-0 p-0"
+            [attr.aria-label]="themeAriaLabel()"
+            [attr.title]="themeAriaLabel()"
+            (click)="toggleTheme()"
+          >
+            @if (isDarkTheme()) {
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              class="h-4 w-4 fill-none stroke-current"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M12 2v2"></path>
+              <path d="M12 20v2"></path>
+              <path d="m4.93 4.93 1.41 1.41"></path>
+              <path d="m17.66 17.66 1.41 1.41"></path>
+              <path d="M2 12h2"></path>
+              <path d="M20 12h2"></path>
+              <path d="m6.34 17.66-1.41 1.41"></path>
+              <path d="m19.07 4.93-1.41 1.41"></path>
+            </svg>
+            } @else {
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              class="h-4 w-4 fill-none stroke-current"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M12 3a9 9 0 1 0 9 9A7 7 0 0 1 12 3z"></path>
+            </svg>
+            }
+            <span class="sr-only">{{ themeAriaLabel() }}</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="flex-1 py-6 md:py-8">
+      <router-outlet></router-outlet>
+    </main>
+
+    <footer
+      class="border-t border-border/70 py-6 text-sm text-muted-foreground"
+    >
+      <div
+        class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between"
+      >
+        <p class="max-w-2xl">
+          Open to conversations around airline modernization, AI-native
+          platforms, and architecture challenges.
+        </p>
+        <div class="flex flex-wrap gap-x-4 gap-y-2">
+          <a
+            class="font-medium text-foreground underline-offset-4 hover:underline"
+            [href]="profile.website"
+            target="_blank"
+            rel="noreferrer"
+          >
+            shashikanth.me
+          </a>
+          <a
+            class="inline-flex items-center gap-2 font-medium text-foreground underline-offset-4 hover:underline"
+            [href]="profile.linkedin"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img
+              src="/logos/linkedin.svg"
+              alt=""
+              class="h-4 w-4 opacity-75 dark:invert dark:opacity-100"
+              aria-hidden="true"
+            />
+            LinkedIn
+          </a>
+          <a
+            class="inline-flex items-center gap-2 font-medium text-foreground underline-offset-4 hover:underline"
+            [href]="profile.github"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img
+              src="/logos/github.svg"
+              alt=""
+              class="h-4 w-4 opacity-75 dark:invert dark:opacity-100"
+              aria-hidden="true"
+            />
+            GitHub
+          </a>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>

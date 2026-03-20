@@ -1,0 +1,147 @@
+@if (post(); as article) {
+  <div class="space-y-5 md:space-y-6">
+    <div
+      class="flex flex-col gap-2.5 rounded-2xl border border-border/70 bg-background/88 p-3 shadow-panel sm:flex-row sm:items-center sm:justify-between"
+    >
+      <a
+        hlmBtn
+        variant="outline"
+        size="default"
+        class="h-9 px-4"
+        routerLink="/blog"
+      >
+        Back to writing archive
+      </a>
+
+      <div class="flex flex-wrap gap-2">
+        <a
+          hlmBtn
+          class="h-9 px-4"
+          size="default"
+          [href]="article.sourceUrl"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Read original article
+        </a>
+        @if (article.relatedRepoUrl) {
+          <a
+            hlmBtn
+            variant="outline"
+            class="h-9 px-4"
+            size="default"
+            [href]="article.relatedRepoUrl"
+            target="_blank"
+            rel="noreferrer"
+          >
+            View related repo
+          </a>
+        }
+      </div>
+    </div>
+
+    <section hlmCard class="border-border/70 bg-background/90 shadow-panel">
+      <div hlmCardHeader class="gap-4 border-b border-border/60 md:gap-5">
+        <div
+          class="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-sm text-muted-foreground"
+        >
+          <span
+            class="rounded-full bg-primary/10 px-3 py-1 font-semibold text-primary"
+          >
+            {{ article.platform }}
+          </span>
+          <span>{{ article.category }}</span>
+          <span>{{ article.publishedOn }}</span>
+          <span>{{ article.readTime }}</span>
+        </div>
+
+        <h1
+          hlmH1
+          class="max-w-5xl font-display text-3xl leading-[1.02] tracking-[-0.026em] md:text-4xl lg:text-[2.85rem]"
+        >
+          {{ article.title }}
+        </h1>
+
+        <p hlmLead class="max-w-5xl text-base leading-7 md:text-lg">
+          {{ article.summary }}
+        </p>
+      </div>
+
+      <div hlmCardContent class="space-y-8 md:space-y-10">
+        <div class="flex flex-wrap gap-2">
+          @for (tag of article.tags; track tag) {
+            <span
+              class="rounded-full border border-border/70 bg-surface px-3 py-1 text-sm text-muted-foreground"
+            >
+              {{ tag }}
+            </span>
+          }
+        </div>
+
+        <article class="mx-auto max-w-4xl space-y-6 md:space-y-8">
+          @for (section of article.sections; track $index) {
+            <section class="space-y-4">
+              @if (section.heading) {
+                <h2 hlmH2 class="font-display text-2xl md:text-3xl">
+                  {{ section.heading }}
+                </h2>
+              }
+
+              @if (section.paragraphs) {
+                @for (paragraph of section.paragraphs; track paragraph) {
+                  <p hlmP>{{ paragraph }}</p>
+                }
+              }
+
+              @if (section.quote) {
+                <blockquote hlmBlockquote class="text-lg">
+                  {{ section.quote }}
+                </blockquote>
+              }
+
+              @if (section.bullets) {
+                <ul hlmUl>
+                  @for (bullet of section.bullets; track bullet) {
+                    <li>{{ bullet }}</li>
+                  }
+                </ul>
+              }
+            </section>
+          }
+
+          @if (article.companionUrl) {
+            <section
+              class="rounded-2xl border border-border/60 bg-surface p-5 text-sm leading-7 text-muted-foreground"
+            >
+              This article also has a companion publication.
+              <a
+                class="font-semibold text-primary underline-offset-4 hover:underline"
+                [href]="article.companionUrl"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Open the alternate version
+              </a>
+              for comparison or cross-post reference.
+            </section>
+          }
+        </article>
+      </div>
+    </section>
+  </div>
+} @else {
+  <section
+    hlmCard
+    class="mx-auto max-w-2xl border-border/70 bg-background/90 shadow-panel"
+  >
+    <div hlmCardHeader>
+      <h1 hlmCardTitle class="font-display text-3xl">Article not found</h1>
+      <p hlmCardDescription>
+        That post is not part of the current portfolio writing archive.
+      </p>
+    </div>
+    <div hlmCardFooter>
+      <a hlmBtn routerLink="/blog">Return to writing archive</a>
+    </div>
+  </section>
+}

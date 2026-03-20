@@ -12,6 +12,7 @@
       "options": {
         "outputPath": "dist/apps/business-showcase",
         "browser": "apps/business-showcase/src/main.ts",
+        "index": "apps/business-showcase/src/index.html",
         "tsConfig": "apps/business-showcase/tsconfig.app.json",
         "assets": [
           {
@@ -19,12 +20,7 @@
             "input": "apps/business-showcase/public"
           }
         ],
-        "styles": ["apps/business-showcase/src/styles.css"],
-        "server": "apps/business-showcase/src/main.server.ts",
-        "ssr": {
-          "entry": "apps/business-showcase/src/server.ts"
-        },
-        "outputMode": "server"
+        "styles": ["apps/business-showcase/src/styles.css"]
       },
       "configurations": {
         "production": {
@@ -76,7 +72,7 @@
       "options": {
         "buildTarget": "business-showcase:build",
         "port": 4200,
-        "staticFilePath": "dist/apps/business-showcase/browser",
+        "staticFilePath": "dist/apps/business-showcase",
         "spa": true
       }
     }
