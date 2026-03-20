@@ -1,0 +1,19 @@
+# Shashi Kanth G S
+
+Portfolio website for Shashi Kanth G S, Solution Architect focused on airline domain modernization, distributed systems, and applied AI.
+
+## Primary Pages
+- Home: https://shashikanth.me/
+- Writing archive: https://shashikanth.me/blog
+
+## Writing
+- The Two Rails of Modern AI: https://shashikanth.me/blog/two-rails-of-modern-ai
+- Build a Vendor-Neutral A2A Agent: https://shashikanth.me/blog/vendor-neutral-a2a-agent
+- Turn GitHub Copilot into an A2A Agent: https://shashikanth.me/blog/github-copilot-as-a2a-agent
+- AI-Assisted Infrastructure Management: https://shashikanth.me/blog/ai-assisted-infrastructure-management
+
+## Author
+- Name: Shashi Kanth G S
+- Website: https://shashikanth.me/
+- LinkedIn: https://www.linkedin.com/in/shashikanthgs
+- GitHub: https://github.com/shashikanth-gs

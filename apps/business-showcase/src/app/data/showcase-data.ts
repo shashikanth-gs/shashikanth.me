@@ -11,6 +11,7 @@ export interface PortfolioProfile {
   imageHint: string;
   initials: string;
   metrics: Array<{ label: string; value: string }>;
+  domainCoverage: string[];
 }
 
 export interface ExperienceEntry {
@@ -64,6 +65,7 @@ export interface BlogPost {
   summary: string;
   readTime: string;
   publishedOn: string;
+  publishedDate: string;
   platform: string;
   sourceUrl: string;
   companionUrl?: string;
@@ -77,9 +79,9 @@ export interface BlogPost {
 export const portfolioProfile: PortfolioProfile = {
   name: 'Shashi Kanth G S',
   headline:
-    'Solution Architect specializing in airline retailing, offer and order architecture, distribution modernization, and cloud-native platforms.',
+    'Solution Architect specializing in airline domain architecture across Offer, Order, Retailing, distribution modernization, and cloud-native platforms.',
   intro:
-    'I design resilient airline platforms with hands-on depth across NDC, offer and order flows, retail distribution, servicing, and modernization programs, while also building AI-native tooling for real operational environments.',
+    'I design resilient airline platforms across commercial and operational functions, combining domain depth with API, event, data-platform, and cloud modernization for real delivery environments.',
   about: [
     'I have spent more than 12 years working exclusively in the airline domain, moving from hands-on delivery into architecture, platform strategy, and modernization leadership across retailing, distribution, and core airline systems.',
     'My work sits at the intersection of business context and engineering execution: cloud transformation, middleware modernization, offer management, order management, servicing, ancillaries, partner distribution, and observable distributed systems.',
@@ -92,13 +94,23 @@ export const portfolioProfile: PortfolioProfile = {
   linkedin: 'https://www.linkedin.com/in/shashikanthgs',
   imageSrc: '/shashi-kanth-gs.jpeg',
   imageHint:
-    'Solution Architect focused on airline retailing, distribution modernization, and AI-native platforms.',
+    'Solution Architect focused on airline domain architecture, modernization, and AI-native platforms.',
   initials: 'SK',
   metrics: [
     { label: 'Experience', value: '12+ years' },
-    { label: 'Core domain', value: 'Airline retailing' },
-    { label: 'Standards', value: 'NDC + ONE Order' },
-    { label: 'Platform scope', value: 'PSS, APIs, events' },
+    { label: 'Architecture assets', value: 'APIs + Events' },
+    { label: 'Data foundation', value: 'Data Warehouse' },
+  ],
+  domainCoverage: [
+    'NDC + ONE Order',
+    'PSS',
+    'Inventory',
+    'Revenue Accounting',
+    'Revenue Management',
+    'Departure Control System (DCS)',
+    'Re-accommodation',
+    '3rd-party Integrations',
+    'Code Share + Interline',
   ],
 };
 
@@ -299,6 +311,7 @@ export const blogPosts: BlogPost[] = [
       'A protocol-first view of modern agent systems: MCP as the tool rail, A2A as the agent rail, and why the combination matters for composable AI architecture.',
     readTime: '6 min read',
     publishedOn: 'February 2026 · Medium',
+    publishedDate: '2026-02-01',
     platform: 'Medium',
     sourceUrl:
       'https://medium.com/@shashikanth.gs/mcp-a2a-the-two-protocol-architecture-powering-the-next-generation-of-ai-systems-45ccbea91c2d',
@@ -341,6 +354,7 @@ export const blogPosts: BlogPost[] = [
       'A practical guide to exposing OpenCode behind A2A so orchestration logic stays stable even when the underlying model provider changes.',
     readTime: '5 min read',
     publishedOn: 'February 27, 2026 · DEV',
+    publishedDate: '2026-02-27',
     platform: 'DEV',
     sourceUrl:
       'https://dev.to/shashikanthgs/build-a-vendor-neutral-a2a-agent-that-works-with-any-llm-provider-43e5',
@@ -380,6 +394,7 @@ export const blogPosts: BlogPost[] = [
       'A concise walkthrough showing how to expose GitHub Copilot as a discoverable A2A agent with MCP tool access and minimal setup.',
     readTime: '5 min read',
     publishedOn: 'February 27, 2026 · DEV',
+    publishedDate: '2026-02-27',
     platform: 'DEV',
     sourceUrl:
       'https://dev.to/shashikanthgs/turn-github-copilot-into-an-a2a-compliant-agent-in-under-5-minutes-4pfl',
@@ -419,6 +434,7 @@ export const blogPosts: BlogPost[] = [
       'A practical argument for secure, auditable AI-assisted operations, built around SSH MCP Bridge and real-world homelab and infrastructure workflows.',
     readTime: '7 min read',
     publishedOn: 'December 31, 2025 · Medium and DEV',
+    publishedDate: '2025-12-31',
     platform: 'Medium / DEV',
     sourceUrl:
       'https://medium.com/@shashikanth.gs/the-missing-piece-for-ai-assisted-infrastructure-management-42597b53bbf6',

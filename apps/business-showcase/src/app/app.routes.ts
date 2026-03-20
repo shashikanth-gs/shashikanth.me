@@ -16,4 +16,8 @@ export const appRoutes: Route[] = [
     path: 'blog/:slug',
     component: PostDetailPageComponent,
   },
+  {
+    path: '**',
+    redirectTo: '',
+  },
 ];

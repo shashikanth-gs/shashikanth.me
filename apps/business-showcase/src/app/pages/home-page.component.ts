@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import {
   HlmAvatarImports,
@@ -14,6 +14,8 @@ import {
   portfolioProfile,
   selectedClients,
 } from '../data/showcase-data';
+import { siteSeo } from '../data/site-seo';
+import { SeoService } from '../services/seo.service';
 
 @Component({
   selector: 'app-home-page',
@@ -27,6 +29,7 @@ import {
   templateUrl: './home-page.component.html',
 })
 export class HomePageComponent {
+  private readonly seo = inject(SeoService);
   protected readonly profile = portfolioProfile;
   protected readonly experience = experienceEntries;
   protected readonly selectedClients = selectedClients;
@@ -35,6 +38,53 @@ export class HomePageComponent {
   protected readonly featuredPosts = blogPosts.slice(0, 2);
   protected readonly githubLogo = '/logos/github.svg';
   protected readonly linkedinLogo = '/logos/linkedin.svg';
+
+  constructor() {
+    this.seo.setMetadata({
+      title: siteSeo.defaultTitle,
+      description: siteSeo.defaultDescription,
+      path: '/',
+      type: 'profile',
+      keywords: [
+        'Airline Solution Architect',
+        'Airline Domain Expert',
+        'NDC',
+        'ONE Order',
+        'Cloud Architecture',
+        'Agentic AI',
+        'Portfolio',
+      ],
+    });
+    this.seo.setStructuredData([
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        name: this.profile.name,
+        url: this.profile.website,
+        image: this.seo.toAbsoluteUrl(this.profile.imageSrc),
+        jobTitle: 'Solution Architect',
+        worksFor: {
+          '@type': 'Organization',
+          name: 'Amadeus',
+        },
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: 'Bengaluru',
+          addressRegion: 'Karnataka',
+          addressCountry: 'India',
+        },
+        sameAs: [this.profile.linkedin, this.profile.github],
+        knowsAbout: this.profile.domainCoverage,
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: this.profile.name,
+        url: this.profile.website,
+        description: this.profile.headline,
+      },
+    ]);
+  }
 
   protected getLogoBadgeClass(logoBadge?: 'light' | 'dark'): string {
     if (logoBadge === 'dark') {

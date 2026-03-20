@@ -8,11 +8,17 @@
   "targets": {
     "build": {
       "executor": "@angular/build:application",
+      "dependsOn": ["generate-sitemap"],
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/business-showcase",
         "browser": "apps/business-showcase/src/main.ts",
+        "server": "apps/business-showcase/src/main.server.ts",
         "index": "apps/business-showcase/src/index.html",
+        "outputMode": "static",
+        "ssr": {
+          "entry": "apps/business-showcase/src/server.ts"
+        },
         "tsConfig": "apps/business-showcase/tsconfig.app.json",
         "assets": [
           {
@@ -58,6 +64,12 @@
         }
       },
       "defaultConfiguration": "development"
+    },
+    "generate-sitemap": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/generate-sitemap.mjs"
+      }
     },
     "lint": {
       "executor": "@nx/eslint:lint"
