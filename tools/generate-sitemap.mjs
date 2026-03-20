@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync, statSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -7,6 +7,10 @@ const dataFilePath = resolve(
   rootDir,
   'apps/business-showcase/src/app/data/showcase-data.ts',
 );
+const landingFilePath = resolve(
+  rootDir,
+  'apps/business-showcase/src/app/data/landing-pages.ts',
+);
 const outputFilePath = resolve(
   rootDir,
   'apps/business-showcase/public/sitemap.xml',
@@ -14,7 +18,11 @@ const outputFilePath = resolve(
 const siteUrl = 'https://shashikanth.me';
 
 const source = readFileSync(dataFilePath, 'utf8');
+const landingSource = readFileSync(landingFilePath, 'utf8');
 const slugs = [...source.matchAll(/slug:\s*'([^']+)'/g)].map(
+  (match) => match[1],
+);
+const landingSlugs = [...landingSource.matchAll(/slug:\s*'([^']+)'/g)].map(
   (match) => match[1],
 );
 const publishedDates = [
@@ -36,6 +44,9 @@ if (slugs.length !== publishedDates.length) {
 const blogLastMod = publishedDates
   .slice()
   .sort((a, b) => (a > b ? -1 : a < b ? 1 : 0))[0];
+const landingLastMod = statSync(landingFilePath).mtime
+  .toISOString()
+  .slice(0, 10);
 
 const homeUrl = [
   '  <url>',
@@ -68,11 +79,25 @@ const blogUrls = slugs
   )
   .join('\n');
 
+const landingUrls = landingSlugs
+  .map((slug) =>
+    [
+      '  <url>',
+      `    <loc>${siteUrl}/${slug}</loc>`,
+      `    <lastmod>${landingLastMod}</lastmod>`,
+      '    <changefreq>monthly</changefreq>',
+      '    <priority>0.85</priority>',
+      '  </url>',
+    ].join('\n'),
+  )
+  .join('\n');
+
 const xml = [
   '<?xml version="1.0" encoding="UTF-8"?>',
   '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
   homeUrl,
   blogIndexUrl,
+  landingUrls,
   blogUrls,
   '</urlset>',
   '',
@@ -80,5 +105,5 @@ const xml = [
 
 writeFileSync(outputFilePath, xml, 'utf8');
 console.log(
-  `Generated sitemap with ${slugs.length + 2} URLs at ${outputFilePath}`,
+  `Generated sitemap with ${slugs.length + landingSlugs.length + 2} URLs at ${outputFilePath}`,
 );

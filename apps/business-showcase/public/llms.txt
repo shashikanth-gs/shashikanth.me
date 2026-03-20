@@ -5,6 +5,10 @@ Portfolio website for Shashi Kanth G S, Solution Architect focused on airline do
 ## Primary Pages
 - Home: https://shashikanth.me/
 - Writing archive: https://shashikanth.me/blog
+- Airline modernization architecture: https://shashikanth.me/airline-modernization-architecture
+- NDC and ONE Order transformation: https://shashikanth.me/ndc-one-order-transformation
+- Airline cloud platform modernization: https://shashikanth.me/airline-cloud-platform-modernization
+- Airline AI ops automation: https://shashikanth.me/airline-ai-ops-automation
 
 ## Writing
 - The Two Rails of Modern AI: https://shashikanth.me/blog/two-rails-of-modern-ai

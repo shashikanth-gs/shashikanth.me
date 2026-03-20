@@ -14,6 +14,7 @@ import {
   portfolioProfile,
   selectedClients,
 } from '../data/showcase-data';
+import { landingPages } from '../data/landing-pages';
 import { siteSeo } from '../data/site-seo';
 import { SeoService } from '../services/seo.service';
 
@@ -35,6 +36,7 @@ export class HomePageComponent {
   protected readonly selectedClients = selectedClients;
   protected readonly focusAreas = focusAreas;
   protected readonly openSourceProjects = openSourceProjects;
+  protected readonly landingPages = landingPages;
   protected readonly featuredPosts = blogPosts.slice(0, 2);
   protected readonly githubLogo = '/logos/github.svg';
   protected readonly linkedinLogo = '/logos/linkedin.svg';
