@@ -37,12 +37,6 @@
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://shashikanth.me/blog/two-rails-of-modern-ai</loc>
-    <lastmod>2026-02-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://shashikanth.me/blog/vendor-neutral-a2a-agent</loc>
     <lastmod>2026-02-27</lastmod>
     <changefreq>monthly</changefreq>
@@ -51,6 +45,12 @@
   <url>
     <loc>https://shashikanth.me/blog/github-copilot-as-a2a-agent</loc>
     <lastmod>2026-02-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shashikanth.me/blog/two-rails-of-modern-ai</loc>
+    <lastmod>2026-02-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

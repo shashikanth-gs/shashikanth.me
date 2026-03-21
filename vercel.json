@@ -1,6 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "npx nx build business-showcase --configuration=production && node tools/indexnow-submit.mjs --production-only",
+  "buildCommand": "npx nx build business-showcase --configuration=production && node tools/indexnow-submit.mjs --production-only && node tools/google-search-console-submit.mjs --production-only",
   "outputDirectory": "dist/apps/business-showcase/browser",
   "routes": [
     {
@@ -22,7 +22,7 @@
       ]
     },
     {
-      "source": "/(robots\\.txt|sitemap\\.xml|llms\\.txt)$",
+      "source": "/(robots\\.txt|sitemap\\.xml|llms\\.txt|rss\\.xml|atom\\.xml|feed\\.json)$",
       "headers": [
         {
           "key": "Cache-Control",

@@ -8,7 +8,7 @@
   "targets": {
     "build": {
       "executor": "@angular/build:application",
-      "dependsOn": ["generate-sitemap"],
+      "dependsOn": ["generate-seo-assets"],
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/business-showcase",
@@ -69,6 +69,12 @@
       "executor": "nx:run-commands",
       "options": {
         "command": "node tools/generate-sitemap.mjs"
+      }
+    },
+    "generate-seo-assets": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/generate-seo-assets.mjs"
       }
     },
     "lint": {

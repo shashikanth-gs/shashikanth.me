@@ -1,23 +1,23 @@
 # Shashi Kanth G S
 
-Portfolio website for Shashi Kanth G S, Solution Architect focused on airline domain modernization, distributed systems, and applied AI.
+Portfolio website for Shashi Kanth G S, Solution Architect specializing in airline domain architecture across Offer, Order, Retailing, distribution modernization, and cloud-native platforms.
 
 ## Primary Pages
 - Home: https://shashikanth.me/
 - Writing archive: https://shashikanth.me/blog
-- Airline modernization architecture: https://shashikanth.me/airline-modernization-architecture
-- NDC and ONE Order transformation: https://shashikanth.me/ndc-one-order-transformation
-- Airline cloud platform modernization: https://shashikanth.me/airline-cloud-platform-modernization
-- Airline AI ops automation: https://shashikanth.me/airline-ai-ops-automation
+- Airline Modernization Architecture: https://shashikanth.me/airline-modernization-architecture
+- NDC and ONE Order Transformation: https://shashikanth.me/ndc-one-order-transformation
+- Airline Cloud Platform Modernization: https://shashikanth.me/airline-cloud-platform-modernization
+- Airline AI Ops and Automation Architecture: https://shashikanth.me/airline-ai-ops-automation
 
 ## Writing
-- The Two Rails of Modern AI: https://shashikanth.me/blog/two-rails-of-modern-ai
-- Build a Vendor-Neutral A2A Agent: https://shashikanth.me/blog/vendor-neutral-a2a-agent
-- Turn GitHub Copilot into an A2A Agent: https://shashikanth.me/blog/github-copilot-as-a2a-agent
-- AI-Assisted Infrastructure Management: https://shashikanth.me/blog/ai-assisted-infrastructure-management
+- Build a Vendor-Neutral A2A Agent That Works With Any LLM Provider: https://shashikanth.me/blog/vendor-neutral-a2a-agent
+- Turn GitHub Copilot into an A2A-Compliant Agent in Under 5 Minutes: https://shashikanth.me/blog/github-copilot-as-a2a-agent
+- The Two Rails of Modern AI: How MCP and A2A Power the Next Generation of Agent Systems: https://shashikanth.me/blog/two-rails-of-modern-ai
+- The Missing Piece for AI-Assisted Infrastructure Management: https://shashikanth.me/blog/ai-assisted-infrastructure-management
 
 ## Author
 - Name: Shashi Kanth G S
-- Website: https://shashikanth.me/
+- Website: https://shashikanth.me
 - LinkedIn: https://www.linkedin.com/in/shashikanthgs
 - GitHub: https://github.com/shashikanth-gs

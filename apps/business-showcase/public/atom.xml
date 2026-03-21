@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Shashi Kanth G S | Writing</title>
+  <id>https://shashikanth.me/blog</id>
+  <link href="https://shashikanth.me/atom.xml" rel="self" />
+  <link href="https://shashikanth.me/blog" />
+  <updated>2026-02-27T00:00:00.000Z</updated>
+  <subtitle>Architecture and engineering writing on airline systems modernization, platform design, and AI-assisted operations.</subtitle>
+  <author>
+    <name>Shashi Kanth G S</name>
+    <uri>https://shashikanth.me</uri>
+  </author>
+  <entry>
+    <title>Build a Vendor-Neutral A2A Agent That Works With Any LLM Provider</title>
+    <id>https://shashikanth.me/blog/vendor-neutral-a2a-agent</id>
+    <link href="https://shashikanth.me/blog/vendor-neutral-a2a-agent" />
+    <published>2026-02-27T00:00:00.000Z</published>
+    <updated>2026-02-27T00:00:00.000Z</updated>
+    <summary>A practical guide to exposing OpenCode behind A2A so orchestration logic stays stable even when the underlying model provider changes.</summary>
+    <category term="A2A" />
+    <category term="OpenCode" />
+    <category term="LLM Providers" />
+    <category term="Agent Systems" />
+  </entry>
+  <entry>
+    <title>Turn GitHub Copilot into an A2A-Compliant Agent in Under 5 Minutes</title>
+    <id>https://shashikanth.me/blog/github-copilot-as-a2a-agent</id>
+    <link href="https://shashikanth.me/blog/github-copilot-as-a2a-agent" />
+    <published>2026-02-27T00:00:00.000Z</published>
+    <updated>2026-02-27T00:00:00.000Z</updated>
+    <summary>A concise walkthrough showing how to expose GitHub Copilot as a discoverable A2A agent with MCP tool access and minimal setup.</summary>
+    <category term="GitHub Copilot" />
+    <category term="A2A" />
+    <category term="MCP" />
+    <category term="TypeScript" />
+  </entry>
+  <entry>
+    <title>The Two Rails of Modern AI: How MCP and A2A Power the Next Generation of Agent Systems</title>
+    <id>https://shashikanth.me/blog/two-rails-of-modern-ai</id>
+    <link href="https://shashikanth.me/blog/two-rails-of-modern-ai" />
+    <published>2026-02-01T00:00:00.000Z</published>
+    <updated>2026-02-01T00:00:00.000Z</updated>
+    <summary>A protocol-first view of modern agent systems: MCP as the tool rail, A2A as the agent rail, and why the combination matters for composable AI architecture.</summary>
+    <category term="MCP" />
+    <category term="A2A" />
+    <category term="Agentic AI" />
+    <category term="Software Architecture" />
+  </entry>
+  <entry>
+    <title>The Missing Piece for AI-Assisted Infrastructure Management</title>
+    <id>https://shashikanth.me/blog/ai-assisted-infrastructure-management</id>
+    <link href="https://shashikanth.me/blog/ai-assisted-infrastructure-management" />
+    <published>2025-12-31T00:00:00.000Z</published>
+    <updated>2025-12-31T00:00:00.000Z</updated>
+    <summary>A practical argument for secure, auditable AI-assisted operations, built around SSH MCP Bridge and real-world homelab and infrastructure workflows.</summary>
+    <category term="MCP" />
+    <category term="Infrastructure" />
+    <category term="Homelab" />
+    <category term="DevSecOps" />
+  </entry>
+</feed>

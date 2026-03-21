@@ -32,10 +32,15 @@ npx nx build business-showcase --configuration=production
 ## SEO Automation
 
 - Route-level SEO metadata + JSON-LD is configured in app code.
-- Sitemap is generated automatically before build:
+- The following files are generated automatically before build:
+  - `apps/business-showcase/public/sitemap.xml`
+  - `apps/business-showcase/public/llms.txt`
+  - `apps/business-showcase/public/rss.xml`
+  - `apps/business-showcase/public/atom.xml`
+  - `apps/business-showcase/public/feed.json`
 
 ```sh
-node tools/generate-sitemap.mjs
+npm run generate:seo-assets
 ```
 
 ## IndexNow Automation
@@ -50,20 +55,35 @@ node tools/generate-sitemap.mjs
 npm run indexnow:submit
 ```
 
+## Google Search Console Automation
+
+- On Vercel production builds, sitemap submission to Google Search Console runs via:
+  - `tools/google-search-console-submit.mjs`
+- Configure these Vercel environment variables:
+  - `GSC_CLIENT_EMAIL` (service account email)
+  - `GSC_PRIVATE_KEY` (service account private key; keep `\n` escaped)
+  - `GSC_SITE_URL` (Search Console property, for example `https://shashikanth.me/` or `sc-domain:shashikanth.me`)
+- Optional:
+  - `GSC_SITEMAP_URL` (defaults to `https://shashikanth.me/sitemap.xml`)
+- Important:
+  - Add the service account email (`GSC_CLIENT_EMAIL`) as an owner or user on the same Search Console property.
+
+Manual run:
+
+```sh
+npm run google:submit-sitemap
+```
+
 ## Deployment (Vercel)
 
 The project is configured to deploy with:
 
-- Build command: `npx nx build business-showcase --configuration=production`
+- Build command:
+  - `npx nx build business-showcase --configuration=production && node tools/indexnow-submit.mjs --production-only && node tools/google-search-console-submit.mjs --production-only`
 - Output directory: `dist/apps/business-showcase/browser`
 
 ## Search Console Verification
 
-Set real tokens in:
+Verification meta tags are already set in:
 
 - `apps/business-showcase/src/index.html`
-
-Replace:
-
-- `REPLACE_WITH_GOOGLE_SITE_VERIFICATION_TOKEN`
-- `REPLACE_WITH_BING_SITE_VERIFICATION_TOKEN`

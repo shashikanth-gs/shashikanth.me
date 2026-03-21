@@ -3,6 +3,8 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "generate:seo-assets": "node tools/generate-seo-assets.mjs",
+    "google:submit-sitemap": "node tools/google-search-console-submit.mjs",
     "indexnow:submit": "node tools/indexnow-submit.mjs"
   },
   "private": true,
