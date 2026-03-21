@@ -1,6 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "npx nx build business-showcase --configuration=production",
+  "buildCommand": "npx nx build business-showcase --configuration=production && node tools/indexnow-submit.mjs --production-only",
   "outputDirectory": "dist/apps/business-showcase/browser",
   "routes": [
     {

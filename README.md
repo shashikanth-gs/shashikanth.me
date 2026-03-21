@@ -38,6 +38,18 @@ npx nx build business-showcase --configuration=production
 node tools/generate-sitemap.mjs
 ```
 
+## IndexNow Automation
+
+- IndexNow key file is published at:
+  - `https://shashikanth.me/24f7d92c48bde2c216f3014aa4b38dd5.txt`
+- On Vercel production builds, sitemap URLs are submitted automatically via:
+  - `tools/indexnow-submit.mjs`
+- You can run it manually:
+
+```sh
+npm run indexnow:submit
+```
+
 ## Deployment (Vercel)
 
 The project is configured to deploy with:

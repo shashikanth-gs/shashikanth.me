@@ -2,7 +2,9 @@
   "name": "shashikanth-me-site",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "indexnow:submit": "node tools/indexnow-submit.mjs"
+  },
   "private": true,
   "dependencies": {
     "@angular-devkit/build-angular": "~21.2.0",
