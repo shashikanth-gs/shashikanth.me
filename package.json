@@ -20,6 +20,7 @@
     "@angular/router": "~21.2.0",
     "@angular/ssr": "~21.2.0",
     "@spartan-ng/brain": "^0.0.1-alpha.655",
+    "@vercel/analytics": "^2.0.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "express": "^4.21.2",
